@@ -4,6 +4,7 @@ import HomeBlog from "../components/HomeBlog";
 import HomeExperience from "../components/HomeExperience";
 import HomeIntro from "../components/HomeIntro";
 import HomePackages from "../components/HomePackages";
+import HomeReviews from "../components/HomeReviews";
 import HomeServices from "../components/HomeServices";
 import HomeVideo from "../components/HomeVideo";
 import HomeView from "../components/HomeView";
@@ -20,6 +21,7 @@ const HomePage = () => {
       <HomeVideo />
       <HomeExperience />
       <HomeBlog />
+      <HomeReviews />
     </div>
   );
 };
