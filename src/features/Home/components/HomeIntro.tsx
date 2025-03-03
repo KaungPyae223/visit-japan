@@ -38,7 +38,6 @@ const HomeIntro = () => {
       scrollTrigger: {
         trigger: ".IntroContainer",
         start: "65% bottom",
-        markers: true,
       },
     });
 
@@ -47,7 +46,6 @@ const HomeIntro = () => {
       scrollTrigger: {
         trigger: ".IntroContainer",
         start: "65% bottom",
-        markers: true,
       },
     });
 
@@ -60,16 +58,16 @@ const HomeIntro = () => {
 
     IntroTimeLine2.from(".IntroTitle", {
       y: 50,
-      duration: 0.7,
+      duration: 0.5,
       opacity: 0,
       stagger: 0.5,
     }).from(".IntroCard", {
       y: 50,
-      duration: 0.7,
+      duration: 0.5,
       stagger: {
-        amount:0.5,
-        grid: [2,2], 
-        axis: "y", 
+        amount: 0.5,
+        grid: [2, 2],
+        axis: "y",
       },
 
       duration: 1,

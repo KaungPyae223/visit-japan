@@ -1,5 +1,7 @@
+import { useEffect } from "react";
 import Container from "../../../components/Container";
-import { MdOutlineAirplaneTicket } from "react-icons/md";
+import { ScrollTrigger } from "gsap/all";
+import gsap from "gsap";
 
 const HomeServices = () => {
   const ServiceData: {
@@ -50,9 +52,26 @@ const HomeServices = () => {
     },
   ];
 
+  useEffect(() => {
+    const ServiceTimeLine = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".ServiceContainer",
+        start: "75% bottom",
+      },
+    });
+
+    ServiceTimeLine.from(".ServiceTitle", { opacity: 0, duration: 0.7 })
+    .from(".ServiceCard",{x:-50,duration:0.7,opacity:0,stagger:{
+      amount:0.5,
+      grid:[5,0],
+      axis:"y",
+      from:"center"
+    }});
+  });
+
   return (
-    <Container className={"py-24 grid grid-cols-3 gap-12"}>
-      <div className="flex flex-col items-center justify-center">
+    <Container className={"py-24 grid grid-cols-3 gap-12 ServiceContainer"}>
+      <div className="flex  flex-col items-center justify-center ServiceTitle">
         <p className="text-4xl tracking-wider font-medium font-poppins">
           Our Services
         </p>
@@ -60,7 +79,9 @@ const HomeServices = () => {
       </div>
       <div className="col-span-2 flex flex-col justify-center items-start gap-12">
         {ServiceData.map((data) => (
-          <ServiceCard service={data} />
+          <div className="ServiceCard">
+            <ServiceCard service={data} />
+          </div>
         ))}
       </div>
     </Container>
@@ -69,7 +90,7 @@ const HomeServices = () => {
 
 const ServiceCard = ({ service }) => {
   return (
-    <div className={service.left} >
+    <div className={service.left}>
       <div className="flex flex-row items-center gap-6">
         <div className="w-16 text-xl h-16 rounded-full flex items-center justify-center bg-neutral-200">
           {service.icon}
