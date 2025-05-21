@@ -69,8 +69,6 @@ const HomeIntro = () => {
         grid: [2, 2],
         axis: "y",
       },
-
-      duration: 1,
       opacity: 0,
     });
   }, []);
@@ -115,7 +113,11 @@ const HomeIntro = () => {
   );
 };
 
-const IntroCard = ({ content }) => {
+const IntroCard = ({
+  content,
+}: {
+  content: { title: string; japan_title: string; content: string };
+}) => {
   return (
     <div className="p-6 bg-neutral-100">
       <p className="text-2xl font-poppins font-medium">{content.title}</p>

@@ -1,4 +1,3 @@
-
 import Container from "../../../components/Container";
 
 const HomeView = () => {
@@ -46,7 +45,11 @@ const HomeView = () => {
   );
 };
 
-const ViewCard = ({ view }) => {
+const ViewCard = ({
+  view,
+}: {
+  view: { img: string; title: string; japan_title: string; content: string };
+}) => {
   return (
     <div>
       <img src={view.img} />

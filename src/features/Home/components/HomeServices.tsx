@@ -59,13 +59,20 @@ const HomeServices = () => {
       },
     });
 
-    ServiceTimeLine.from(".ServiceTitle", { opacity: 0, duration: 0.7 })
-    .from(".ServiceCard",{x:-50,duration:0.7,opacity:0,stagger:{
-      amount:0.5,
-      grid:[5,0],
-      axis:"y",
-      from:"center"
-    }});
+    ServiceTimeLine.from(".ServiceTitle", { opacity: 0, duration: 0.7 }).from(
+      ".ServiceCard",
+      {
+        x: -50,
+        duration: 0.7,
+        opacity: 0,
+        stagger: {
+          amount: 0.5,
+          grid: [5, 0],
+          axis: "y",
+          from: "center",
+        },
+      }
+    );
   });
 
   return (
@@ -87,7 +94,17 @@ const HomeServices = () => {
   );
 };
 
-const ServiceCard = ({ service }) => {
+const ServiceCard = ({
+  service,
+}: {
+  service: {
+    left: string;
+    icon: string;
+    japan_title: string;
+    title: string;
+    content: string;
+  };
+}) => {
   return (
     <div className={service.left}>
       <div className="flex flex-row items-center gap-6">
