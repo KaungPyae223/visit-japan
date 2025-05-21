@@ -1,8 +1,8 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Container from "../../../components/Container";
 import { gsap } from "gsap/gsap-core";
-import { easeOut, motion, scale } from "framer-motion";
-import { details } from "motion/react-m";
+import {  motion } from "framer-motion";
+
 
 const HomeExperience = () => {
   const ExperienceData: {
@@ -94,7 +94,14 @@ const HomeExperience = () => {
   );
 };
 
-const ExperienceCard = ({ img, title, japanese, details }) => {
+type ExperienceProps = {
+  img: string;
+  title: string;
+  japanese: string;
+  details: string;
+};
+
+const ExperienceCard = ({ img, title, japanese, details }: ExperienceProps) => {
   const detailContainer = useRef(null);
 
   useEffect(() => {

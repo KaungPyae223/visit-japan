@@ -91,7 +91,13 @@ const HomeBlog = () => {
   );
 };
 
-const BlogCard = ({ img, title, content }) => {
+type BlogItemProps = {
+  img: string;
+  title: string;
+  content: string;
+};
+
+const BlogCard = ({ img, title, content }: BlogItemProps) => {
   return (
     <div className="flex flex-row items-start gap-6 object-cover blog-card">
       <img className="w-1/3 h-full" src={img} />

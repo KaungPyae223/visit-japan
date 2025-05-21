@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect } from "react";
 import Container from "../../../components/Container";
 import gsap from "gsap";
 

@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import Container from "../../../components/Container";
-import { ScrollTrigger } from "gsap/all";
 import gsap from "gsap";
 
 const HomeServices = () => {

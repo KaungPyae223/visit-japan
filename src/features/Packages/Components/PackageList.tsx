@@ -1,4 +1,4 @@
-import React from "react";
+
 import PackageCard from "../../global/PackageCard";
 import Container from "../../../components/Container";
 
