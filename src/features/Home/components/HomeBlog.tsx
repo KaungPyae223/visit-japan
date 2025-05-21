@@ -1,4 +1,9 @@
+import { useEffect } from "react";
 import Container from "../../../components/Container";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const HomeBlog = () => {
   const BlogData = [
@@ -26,9 +31,34 @@ const HomeBlog = () => {
     },
   ];
 
+  useEffect(() => {
+    gsap.from(".blog-card", {
+      scrollTrigger: {
+        trigger: ".home-blog-container",
+        start: "top 30%",
+      },
+      opacity: 0,
+      y: 50,
+      duration: 1,
+      stagger: 0.4,
+      ease: "power3.out",
+    });
+
+    gsap.from(".blog", {
+      scrollTrigger: {
+        trigger: ".home-blog-container",
+        start: "top 30%",
+      },
+      opacity: 0,
+      x: -50,
+      duration: 1.5,
+      ease: "power3.Out",
+    });
+  }, []);
+
   return (
-    <Container className={"py-24 grid grid-cols-2 gap-6"}>
-      <div>
+    <Container className={"py-24 grid grid-cols-2 gap-6 home-blog-container"}>
+      <div className="blog">
         <p className="text-4xl tracking-wider font-medium font-poppins">
           Travel Blogs
         </p>
@@ -63,7 +93,7 @@ const HomeBlog = () => {
 
 const BlogCard = ({ img, title, content }) => {
   return (
-    <div className="flex flex-row items-start gap-6 object-cover ">
+    <div className="flex flex-row items-start gap-6 object-cover blog-card">
       <img className="w-1/3 h-full" src={img} />
       <div>
         <p className="font-poppins text-2xl font-medium">{title}</p>

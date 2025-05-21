@@ -1,4 +1,9 @@
+import { useEffect } from "react";
 import Container from "../../../components/Container";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const HomePackages = () => {
   const Packages: {
@@ -29,20 +34,45 @@ const HomePackages = () => {
       Destinations: "Tokyo, Kyoto, Osaka",
       contents: `A perfect blend of Japan’s past and future, exploring historic temples and futuristic cityscapes.`,
     },
-    
   ];
 
+  useEffect(() => {
+    gsap.from(".service-card", {
+      scrollTrigger: {
+        trigger: ".service-container",
+        start: "top 30%",
+      },
+      opacity: 0,
+      y: 50,
+      duration: 1,
+      stagger: 0.3,
+      ease: "power3.out",
+    });
+
+    gsap.from([".left-bth", ".right-bth",".title"], {
+      scrollTrigger: {
+        trigger: ".service-container",
+        start: "top 30%",
+      },
+      scale: 0.5,
+      opacity: 0,
+      duration: 0.5,
+      delay: 0.3,
+      ease: "back.out(1.7)",
+    });
+  }, []);
+
   return (
-    <Container className={"py-24"}>
+    <Container className={"py-24 service-container"}>
       <div className="flex flex-row justify-between items-center">
-        <div>
-          <p className="text-4xl tracking-wider font-medium font-poppins">
+        <div className="title">
+          <p className="text-4xl  tracking-wider font-medium font-poppins">
             Our Top Packages
           </p>
           <p className="text-xl mt-4">( 弊社のトップパッケージ )</p>
         </div>
         <div className="flex flex-row gap-6">
-          <div className="flex items-center justify-center w-12 h-12 rounded-full border border-gray-400 cursor-pointer">
+          <div className="flex left-bth items-center justify-center w-12 h-12 rounded-full border border-gray-400 cursor-pointer">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -58,7 +88,7 @@ const HomePackages = () => {
               />
             </svg>
           </div>
-          <div className="flex items-center justify-center w-12 h-12 rounded-full border border-gray-400 cursor-pointer">
+          <div className="flex right-bth items-center justify-center w-12 h-12 rounded-full border border-gray-400 cursor-pointer">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -87,7 +117,7 @@ const HomePackages = () => {
 
 const PackageCard = ({ packageData }) => {
   return (
-    <div className="border border-gray-300 flex flex-col">
+    <div className="border border-gray-300 flex flex-col service-card">
       <img src={packageData.img} />
       <div className="p-3">
         <p className="mt-3 font-poppins text-xl font-semibold">

@@ -1,14 +1,10 @@
 import { createRoot } from "react-dom/client";
 import "./styles/index.css";
-import { RouterProvider } from "react-router";
-import router from "./routes/router";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/all";
-gsap.registerPlugin(ScrollTrigger);
-
+import App from "./app";
+import { BrowserRouter } from "react-router";
 
 createRoot(document.getElementById("root")!).render(
-  
-    <RouterProvider router={router} />
-  
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>
 );
