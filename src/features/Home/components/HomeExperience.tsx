@@ -1,4 +1,4 @@
-import { ReactElement, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Container from "../../../components/Container";
 import { gsap } from "gsap/gsap-core";
 import { motion } from "framer-motion";
@@ -101,7 +101,7 @@ type ExperienceProps = {
 };
 
 const ExperienceCard = ({ img, title, japanese, details }: ExperienceProps) => {
-  const detailContainer = useRef<HTMLElement>(null);
+  const detailContainer = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const moveContainerX = gsap.quickTo(detailContainer.current, "left", {
