@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import Container from "../../../components/Container";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import PackageCard from "../../global/PackageCard";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -115,35 +116,6 @@ const HomePackages = () => {
   );
 };
 
-const PackageCard = ({ packageData }) => {
-  return (
-    <div className="border border-gray-300 flex flex-col service-card">
-      <img src={packageData.img} />
-      <div className="p-3">
-        <p className="mt-3 font-poppins text-xl font-semibold">
-          {packageData.title}
-        </p>
-        <p className="text-sm mt-3">
-          <span className="font-medium">Duration:</span> {packageData.duration}{" "}
-          days
-        </p>
-        <p className="text-sm">
-          <span className="font-medium">Destinations:</span>{" "}
-          {packageData.Destinations}
-        </p>
 
-        <p className="text-justify mt-5 text-gray-800">
-          {packageData.contents}
-        </p>
-      </div>
-
-      <div className=" p-3 flex flex-row justify-end items-center mt-auto">
-        <div className="px-3 py-1 cursor-pointer border uppercase tracking-wider border-gray-300">
-          Details ( 詳細 )
-        </div>
-      </div>
-    </div>
-  );
-};
 
 export default HomePackages;

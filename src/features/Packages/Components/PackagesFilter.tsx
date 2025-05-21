@@ -40,7 +40,7 @@ const PackagesFilter = () => {
             />
           </div>
           <div className=" flex flex-co h-full">
-            <div className="w-10 h-10 mt-auto flex items-center justify-center bg-gray-700 text-white">
+            <div className="w-10 cursor-pointer h-10 mt-auto flex items-center justify-center bg-gray-700 text-white">
               <BiSearch className="size-5" />
             </div>
           </div>
