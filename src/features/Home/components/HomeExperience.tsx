@@ -114,8 +114,9 @@ const ExperienceCard = ({ img, title, japanese, details }: ExperienceProps) => {
     });
 
     window.addEventListener("mousemove", (e) => {
-      const widowWidth = window.innerWidth;
+      if (!detailContainer.current) return;
 
+      const widowWidth = window.innerWidth;
       const { clientX, clientY } = e;
 
       if (clientX < widowWidth / 2) moveContainerX(clientX);
