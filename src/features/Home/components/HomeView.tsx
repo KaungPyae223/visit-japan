@@ -30,12 +30,9 @@ const HomeView = () => {
     },
   ];
 
-  const cardRefs = useRef([]); // Create a ref to hold references to each card
+  const cardRefs = useRef<HTMLDivElement[]>([]);
 
   useEffect(() => {
-    // This will run after the component mounts and the DOM is available
-
-    // Animation for the main title
     gsap.from(".main-title", {
       scrollTrigger: {
         trigger: ".main-title",
@@ -48,7 +45,6 @@ const HomeView = () => {
       ease: "power3.out",
     });
 
-    // Animation for the Japanese title
     gsap.from(".japan-title", {
       scrollTrigger: {
         trigger: ".japan-title",
@@ -61,7 +57,6 @@ const HomeView = () => {
       ease: "power3.out",
     });
 
-    // Loop through each card ref and create a ScrollTrigger animation
     cardRefs.current.forEach((card) => {
       gsap.from(card, {
         opacity: 0,
@@ -75,7 +70,7 @@ const HomeView = () => {
         },
       });
     });
-  }, []); // Empty dependency array means this effect runs once after initial render
+  }, []);
 
   return (
     <Container className={"py-24"}>
