@@ -83,7 +83,12 @@ const HomeView = () => {
         </p>
         <div className="mt-12 grid grid-cols-3 gap-6">
           {viewData.map((data, index) => (
-            <div key={index} ref={(el) => (cardRefs.current[index] = el)}>
+            <div
+              key={index}
+              ref={(el) => {
+                if (el) cardRefs.current[index] = el;
+              }}
+            >
               <ViewCard view={data} />
             </div>
           ))}
