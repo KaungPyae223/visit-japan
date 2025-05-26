@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import gsap from "gsap";
+import {  CgArrowDown, CgArrowRight } from "react-icons/cg";
 
 const HeroSection = () => {
   useEffect(() => {
@@ -46,11 +47,11 @@ const HeroSection = () => {
           </p>
 
           <div className="cta mt-6 flex justify-center gap-4 flex-wrap">
-            <button className="bg-white text-black px-6 py-3 text-lg font-semibold hover:bg-gray-100 transition">
-              Booking Now →
+            <button className="bg-white flex flex-row items-center gap-3 text-black px-6 py-3 text-lg font-semibold hover:bg-gray-100 transition">
+              Booking Now <CgArrowRight />
             </button>
-            <button className="border border-white px-6 py-3  text-lg font-semibold hover:bg-white hover:text-black transition">
-              Explore More ↓
+            <button className="border border-white flex flex-row items-center gap-3 px-6 py-3  text-lg font-semibold hover:bg-white hover:text-black transition">
+              Explore More <CgArrowDown />
             </button>
           </div>
         </div>

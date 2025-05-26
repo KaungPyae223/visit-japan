@@ -1,16 +1,41 @@
 import Container from "../../../components/Container";
+import { useEffect } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const HomeAboutUs = () => {
+  useEffect(() => {
+    // Staggered animation for the fact boxes
+    gsap.from(".fact-box", {
+      opacity: 0,
+      scale: 0.8,
+      duration: 0.6,
+      stagger: 0.1, // Stagger the animation by 0.1 seconds for each box
+      ease: "back.out(1.7)", // A nice bouncy ease
+      scrollTrigger: {
+        trigger: ".fact-box", // Use the array of elements as the trigger
+        start: "top 90%", // When the first fact box enters 90% of the viewport
+        end: "bottom 10%",
+        toggleActions: "play none none none",
+        // markers: true, // Uncomment for debugging
+      },
+    });
+  }, []);
+
   return (
-    <Container className={"py-24 "}>
+    <Container className={"py-24"}>
       <div className="grid grid-cols-4 border">
-        <div className="border p-9 flex flex-col items-center justify-center">
-            <p className="text-4xl font-medium font-poppins">300 +</p>
-            <p className="text-2xl font-montserrat mt-3">Trusted Clients</p>
-            <p className="mt-0.5">( 信頼できる顧客 )</p>
+        {/* Fact Box: Trusted Clients */}
+        <div className="border p-9 fact-box flex flex-col items-center justify-center">
+          <p className="text-4xl font-medium font-poppins">300 +</p>
+          <p className="text-2xl font-montserrat mt-3">Trusted Clients</p>
+          <p className="mt-0.5">( 信頼できる顧客 )</p>
         </div>
 
-        <div className="col-span-2 row-span-2 col-start-2 border p-9">
+        {/* About Us Main Content */}
+        <div className="col-span-2 fact-box row-span-2 col-start-2 border p-9">
           <p className="text-4xl text-center tracking-wider font-medium font-poppins">
             About Us
           </p>
@@ -29,40 +54,54 @@ const HomeAboutUs = () => {
             isn’t just a destination, it’s an experience like no other.
           </p>
         </div>
-        <div className="border p-9 flex flex-col items-center justify-center">
-            <p className="text-4xl font-medium font-poppins">50 +</p>
-            <p className="text-2xl font-montserrat mt-3">Partners</p>
-            <p className="mt-0.5">( パートナー )</p>
+
+        {/* Fact Box: Partners */}
+        <div className="border p-9 fact-box flex flex-col items-center justify-center">
+          <p className="text-4xl font-medium font-poppins">50 +</p>
+          <p className="text-2xl font-montserrat mt-3">Partners</p>
+          <p className="mt-0.5">( パートナー )</p>
         </div>
-        <div className="border p-9 flex flex-col items-center justify-center">
-            <p className="text-4xl font-medium font-poppins">30 +</p>
-            <p className="text-2xl font-montserrat mt-3">Services</p>
-            <p className="mt-0.5">( サービス )</p>
+
+        {/* Fact Box: Services */}
+        <div className="border p-9 fact-box flex flex-col items-center justify-center">
+          <p className="text-4xl font-medium font-poppins">30 +</p>
+          <p className="text-2xl font-montserrat mt-3">Services</p>
+          <p className="mt-0.5">( サービス )</p>
         </div>
-        <div className="border p-9 flex flex-col items-center justify-center">
-            <p className="text-4xl font-medium font-poppins">50 +</p>
-            <p className="text-2xl font-montserrat mt-3">Professions</p>
-            <p className="mt-0.5">( 職業 )</p>
+
+        {/* Fact Box: Professions */}
+        <div className="border p-9 fact-box flex flex-col items-center justify-center">
+          <p className="text-4xl font-medium font-poppins">50 +</p>
+          <p className="text-2xl font-montserrat mt-3">Professions</p>
+          <p className="mt-0.5">( 職業 )</p>
         </div>
-        <div className="border p-9 flex flex-col items-center justify-center">
-            <p className="text-4xl font-medium font-poppins">2013</p>
-            <p className="text-2xl font-montserrat mt-3">Since</p>
-            <p className="mt-0.5">( 以来 )</p>
+
+        {/* Fact Box: Since */}
+        <div className="border p-9 fact-box flex flex-col items-center justify-center">
+          <p className="text-4xl font-medium font-poppins">2013</p>
+          <p className="text-2xl font-montserrat mt-3">Since</p>
+          <p className="mt-0.5">( 以来 )</p>
         </div>
-        <div className="border p-9 flex flex-col items-center justify-center">
-            <p className="text-4xl font-medium font-poppins">40 +</p>
-            <p className="text-2xl font-montserrat mt-3">Awards</p>
-            <p className="mt-0.5">( 受賞歴 )</p>
+
+        {/* Fact Box: Awards */}
+        <div className="border p-9 fact-box flex flex-col items-center justify-center">
+          <p className="text-4xl font-medium font-poppins">40 +</p>
+          <p className="text-2xl font-montserrat mt-3">Awards</p>
+          <p className="mt-0.5">( 受賞歴 )</p>
         </div>
-        <div className="border p-9 flex flex-col items-center justify-center">
-            <p className="text-4xl font-medium font-poppins">1000 +</p>
-            <p className="text-2xl font-montserrat mt-3">Happy Travelers</p>
-            <p className="mt-0.5">( 満足した旅行者 )</p>
+
+        {/* Fact Box: Happy Travelers */}
+        <div className="border p-9 fact-box flex flex-col items-center justify-center">
+          <p className="text-4xl font-medium font-poppins">1000 +</p>
+          <p className="text-2xl font-montserrat mt-3">Happy Travelers</p>
+          <p className="mt-0.5">( 満足した旅行者 )</p>
         </div>
-        <div className="border p-9 flex flex-col items-center justify-center">
-            <p className="text-4xl font-medium font-poppins">100 +</p>
-            <p className="text-2xl font-montserrat mt-3">Destinations</p>
-            <p className="mt-0.5">( 目的地 )</p>
+
+        {/* Fact Box: Destinations */}
+        <div className="border p-9 fact-box flex flex-col items-center justify-center">
+          <p className="text-4xl font-medium font-poppins">100 +</p>
+          <p className="text-2xl font-montserrat mt-3">Destinations</p>
+          <p className="mt-0.5">( 目的地 )</p>
         </div>
       </div>
     </Container>
