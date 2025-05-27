@@ -18,11 +18,11 @@ const NavBar = () => {
           <div className="text-2xl font-bold">
             <p className="cursor-pointer text-gray-800 hover:text-gray-500" onClick={() => setRoute("/")}>Visit Japan</p>
           </div>
-          <ul className="flex space-x-6">
+          <ul className="flex items-center space-x-6">
             <li>
               <p
                 onClick={() => setRoute("/")}
-                className={path === "/" ? "text-gray-800 font-semibold text-lg" : "cursor-pointer text-gray-600 hover:text-gray-500"}
+                className={path === "/" ? "text-gray-800 font-semibold " : "cursor-pointer text-gray-600 hover:text-gray-500"}
               >
                 Home
               </p>
@@ -30,7 +30,7 @@ const NavBar = () => {
             <li>
               <p
                 onClick={() => setRoute("/packages")}
-                className={path === "/packages" ? "text-gray-800 font-semibold text-lg" : "cursor-pointer text-gray-600 hover:text-gray-500"}
+                className={path === "/packages" ? "text-gray-800 font-semibold " : "cursor-pointer text-gray-600 hover:text-gray-500"}
               >
                 Packages
               </p>
@@ -38,7 +38,7 @@ const NavBar = () => {
             <li>
               <p
                 onClick={() => setRoute("/about")}
-                className={path === "/about" ? "text-gray-800 font-semibold text-lg" : "cursor-pointer text-gray-600 hover:text-gray-500"}
+                className={path === "/about" ? "text-gray-800 font-semibold " : "cursor-pointer text-gray-600 hover:text-gray-500"}
               >
                 About
               </p>
